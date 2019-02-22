@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Vittoria Rezzonico" />
+  <title>SCITAS</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="presentation_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="presentation_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">SCITAS</h1>
+    <h2 class="author">Vittoria Rezzonico</h2>
+    <h3 class="date">12 février 2019</h3>
+</section>
+
+<section class="slide level1">
+
+<style>
+.reveal section img { background:none; border:none; box-shadow:none; }
+.reveal section table {
+  border: none;
+}
+.reveal section tr {
+  border: none;
+}
+
+.reveal section td {
+  border: none;
+  text-align: center;
+}
+</style>
+</section>
+<section id="nos-services" class="slide level1">
+<h1>Nos services</h1>
+<p><br> <br></p>
+<ul>
+<li>Clusters de calcul: ~1000 serveurs et 30’000 cores</li>
+<li>Stockage associé: 7PB</li>
+<li>Expertise applicative</li>
+</ul>
+<p><br> <br></p>
+<p>~670 utilisateurs provenant de 180 laboratoires.</p>
+</section>
+<section id="nos-services-moins-connus" class="slide level1">
+<h1>Nos services moins connus</h1>
+<p><br> <br></p>
+<ul>
+<li>c4science.ch</li>
+<li>Ingénierie logicielle, HPC et support scientifique</li>
+</ul>
+</section>
+<section id="gouvernance" class="slide level1">
+<h1>Gouvernance</h1>
+<p><br> <br></p>
+<ul>
+<li>Comité de Direction</li>
+<li>Assemblée générale des utilisateurs</li>
+<li>Direction opérationnelle</li>
+</ul>
+</section>
+<section id="lequipe" class="slide level1">
+<h1>L’équipe</h1>
+<p><br> <br></p>
+<ul>
+<li>6 experts systèmes (5.8)</li>
+<li>7 experts applicatifs (6.9)</li>
+<li>1 assistante administrative (1.0)</li>
+<li>1 directrice exécutive (0.8)</li>
+</ul>
+</section>
+<section id="systemes" class="slide level1">
+<h1>Systèmes</h1>
+<ul>
+<li>Achat des machines</li>
+<li>Exploitation des machines</li>
+<li>Support utilisateurs</li>
+<li>Cours pour les utilisateurs</li>
+<li>Déploiement logiciels scientifiques</li>
+<li>Veille technologique</li>
+</ul>
+<table>
+<tr>
+<td>
+<img src="aubort.png" title="Aubort" alt="Aubort" />
+</td>
+<td>
+<img src="clemencon.png" title="Clémençon" alt="Clémençon" />
+</td>
+<td>
+<img src="degiorgi.png" title="De Giorgi" alt="De Giorgi" />
+</td>
+<td>
+<img src="silva.png" title="Silva" alt="Silva" />
+</td>
+<td>
+<img src="roche.png" title="Roche" alt="Roche" />
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Jean-Baptiste<br>Aubort
+</td>
+<td>
+Christian<br>Clémençon
+</td>
+<td>
+Jean-Claude<br>De Giorgi
+</td>
+<td>
+Ricardo<br>Silva
+</td>
+<td>
+Ewan<br>Roche
+</td>
+<td>
+Krassimir<br>Todorov
+</td>
+</tr>
+</table>
+</section>
+<section id="applications" class="slide level1">
+<h1>Applications</h1>
+<ul>
+<li>Support utilisateurs</li>
+<li>Cours pour les utilisateurs</li>
+<li>Cours master/PhD</li>
+<li>Déploiement logiciels scientifiques</li>
+<li>Veille technologique</li>
+<li>Support scientifique</li>
+</ul>
+<table>
+<tr>
+<td>
+<img src="culpo.png" title="Culpo" alt="Culpo" />
+</td>
+<td>
+<img src="fang.png" title="Fang" alt="Fang" />
+</td>
+<td>
+<img src="fourestey.png" title="Fourestey" alt="Fourestey" />
+</td>
+</tr>
+<tr>
+<td>
+Massimiliano Culpo
+</td>
+<td>
+Jiannong Fang
+</td>
+<td>
+Gilles Fourestey
+</td>
+</tr>
+<tr>
+<td>
+<img src="jana.png" title="Jana" alt="Jana" />
+</td>
+<td>
+<img src="keller.png" title="Keller" alt="Keller" />
+</td>
+<td>
+<img src="richart.png" title="Richart" alt="Richart" />
+</td>
+<td>
+<img src="varini.png" title="Varini" alt="Varini" />
+</td>
+</tr>
+<tr>
+<td>
+Daniel Jana
+</td>
+<td>
+Vincent Keller
+</td>
+<td>
+Nicolas Richart
+</td>
+<td>
+Nicola Varini
+</td>
+</tr>
+</table>
+</section>
+<section id="administration" class="slide level1">
+<h1>Administration</h1>
+<ul>
+<li>Gestion des utilisateurs</li>
+<li>Contrats avec les différents groupes</li>
+<li>Achat des machines</li>
+<li>Statistiques utilisateurs</li>
+<li>Facturation</li>
+</ul>
+<table>
+<tr>
+<td>
+<img src="lebet.png" title="Lebet" alt="Lebet" />
+</td>
+<td>
+<img src="rezzonico.png" title="Rezzonico" alt="Rezzonico" />
+</td>
+</tr>
+<tr>
+<td>
+Yohanna Lebet<br>Administrative Assistant
+</td>
+<td>
+Vittoria Rezzonico<br>Operational Director (80%)
+</td>
+</tr>
+</table>
+</section>
+<section id="nos-machines" class="slide level1">
+<h1>Nos machines</h1>
+<p><br></p>
+<h2 id="clusters-hpc">Clusters HPC</h2>
+<p><br></p>
+<ul>
+<li>Systèmes orientés calcul à haute performance: HPC</li>
+<li>Quand la taille du problème dépasse 1 noeud</li>
+<li>Système de fichiers parallèle et distribué (GPFS)</li>
+<li>Réseaux basse latence</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p><img src="terminal.gif" alt="duree" /></p>
+</section>
+<section id="pour-calculer-chez-nous" class="slide level1">
+<h1>Pour calculer chez nous</h1>
+<p><br><br></p>
+<ul>
+<li>demander un compte</li>
+<li>comptes possibles pour externes
+<ul>
+<li>collaboration avec un labo EPFL</li>
+<li>contrat avec <em>externe académique</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="une-fois-quon-a-le-compte" class="slide level1">
+<h1>Une fois qu’on a le compte</h1>
+<ul>
+<li>faire le <em>login</em></li>
+<li>copier votre code sur la machine</li>
+<li>copier les entrées (ou <em>git clone</em>)</li>
+<li>soumettre une tâche</li>
+<li>surveiller l’état de la tâche</li>
+<li>une fois la tâche terminée, copier les résultats</li>
+</ul>
+<p>Des cours de base sont organisés<br>régulièrement et sur demande</p>
+</section>
+<section id="duree-de-vie" class="slide level1">
+<h1>Durée de vie</h1>
+<p><br><br><br></p>
+<ul>
+<li>la durée de vie d’une machine est généralement de 4 ans</li>
+<li>elle peut être prolongée d’un an, hors garantie
+<ul>
+<li>si une pièce non-critique lâche,<br>moins de puissance de calcul</li>
+<li>si une pièce critique lâche,<br> on décomissionne toute la machine</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p><img src="clusters-timeline-gss.png" alt="duree" /></p>
+</section>
+<section id="flops-definition" class="slide level1">
+<h1>FLOPs: définition</h1>
+<h2 id="floating-point-operations-per-second">Floating Point Operations Per Second</h2>
+<p>Opérations à virgule flottante par seconde</p>
+<table>
+<thead>
+<tr class="header">
+<th>Préfixe</th>
+<th>Sigle</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>k</td>
+<td>kilo</td>
+<td><span class="math inline">\(10^3\)</span></td>
+</tr>
+<tr class="even">
+<td>M</td>
+<td>méga</td>
+<td><span class="math inline">\(10^6\)</span></td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>giga</td>
+<td><span class="math inline">\(10^9\)</span></td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>téra</td>
+<td><span class="math inline">\(10^{12}\)</span></td>
+</tr>
+<tr class="odd">
+<td>P</td>
+<td>péta</td>
+<td><span class="math inline">\(10^{15}\)</span></td>
+</tr>
+<tr class="even">
+<td>E</td>
+<td>exa</td>
+<td><span class="math inline">\(10^{18}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level1">
+
+<p><img src="animation-flops.gif" alt="duree" /></p>
+</section>
+<section id="nos-clusters" class="slide level1">
+<h1>Nos clusters</h1>
+<p>Aujourd’hui 2 clusters, 4 générations de CPUs</p>
+<ul>
+<li>1170 noeuds de calcul
+<ul>
+<li>27 k coeurs</li>
+<li>140 TB de RAM</li>
+<li>1.3 PFLOPs (.091 sur des GPUs)</li>
+</ul></li>
+<li>7 PB Stockage partagé
+<ul>
+<li>le plus gros morceaux est pour le stockage moyen terme</li>
+</ul></li>
+</ul>
+</section>
+<section id="deneb-eltanin" class="slide level1">
+<h1>Deneb + Eltanin</h1>
+<p><img src="Deneb-294x300.png" title="Deneb" alt="deneb" /></p>
+<ul>
+<li>scratch: utilise le GPFS central</li>
+<li>Infiniband QDR</li>
+</ul>
+</section>
+<section id="en-bref" class="slide level1">
+<h1>En bref</h1>
+<p><br><br></p>
+<ul>
+<li>Performance crête: 293 TFLOPs
+<ul>
+<li>211 dans les CPUs</li>
+<li>92 dans les GPUs</li>
+</ul></li>
+<li>RAM totale: 37TB</li>
+<li>9920 cores</li>
+</ul>
+</section>
+<section id="specifications" class="slide level1">
+<h1>Spécifications</h1>
+<ul>
+<li>Deneb
+<ul>
+<li>deux frontales,</li>
+<li>deux noeuds d’administration</li>
+<li>376 noeuds de calcul Ivy Bridge</li>
+<li>16 noeuds avec chacun 4 GPUs (NVIDIA K40)</li>
+<li>10 noeuds à grande mémoire</li>
+</ul></li>
+<li>Eltanin
+<ul>
+<li>144 noeuds Haswell</li>
+</ul></li>
+</ul>
+</section>
+<section id="fidis-et-gacrux" class="slide level1">
+<h1>Fidis et Gacrux</h1>
+<p><img src="Fidis-249x300.png" title="Fidis" alt="fidis" /></p>
+</section>
+<section id="en-bref-1" class="slide level1">
+<h1>En bref</h1>
+<p><br><br></p>
+<ul>
+<li>Performance crête: 978 TFLOPs</li>
+<li>Stockage scratch: 350TB GPFS</li>
+<li>Infiniband FDR</li>
+<li>17’472 cores</li>
+<li>SSDs locaux (tmp, LROC)</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="fidis">Fidis</h2>
+<ul>
+<li>Architecture Intel Broadwell</li>
+<li>deux noeuds d’administration</li>
+<li>336 noeuds standard</li>
+<li>72 noeuds à grande mémoire</li>
+</ul>
+<h2 id="gacrux">Gacrux</h2>
+<ul>
+<li>216 noeuds Intel Skylake</li>
+<li>Infiniband EDR</li>
+</ul>
+</section>
+<section id="nouvel-arrivage" class="slide level1">
+<h1>Nouvel arrivage</h1>
+<p><br></p>
+<h2 id="helvetios">Helvetios</h2>
+<p><br></p>
+<ul>
+<li>cluster standard (pas d’accélérateurs)</li>
+<li>288 noeuds</li>
+<li>10’368 cores au total</li>
+<li>puissance crête: 763 TFLOPs</li>
+<li>déjà dans le datacenter, en production sous peu</li>
+</ul>
+</section>
+<section id="le-futur-izar" class="slide level1">
+<h1>Le futur: Izar</h1>
+<p><br><br></p>
+<ul>
+<li>Cluster accéléré avec des GPUs</li>
+<li>32 à 64 noeuds avec 2 cartes NVIDIA V100 chacun</li>
+<li>2 noeuds avec 4 cartes et NVlink</li>
+<li>puissance crête: 0.5 à 1 PFLOPs</li>
+</ul>
+</section>
+<section id="science" class="slide level1">
+<h1>Science</h1>
+<p>Exemple de codes qui tournent chez nous</p>
+</section>
+<section id="frequent-flyers" class="slide level1">
+<h1>Frequent flyers</h1>
+<p><img src="materiaux.jpg" alt="materiaux" /></p>
+</section>
+<section id="frequent-flyers-1" class="slide level1">
+<h1>Frequent flyers</h1>
+<ul>
+<li>Science des matériaux</li>
+<li>Chimie computationnelle</li>
+<li>Dynamique des fluides</li>
+<li>Mécanique des solides</li>
+<li>Météo</li>
+<li>Biostatistique</li>
+<li>Sciences du vivant</li>
+<li>Physique des hautes énergies</li>
+<li>Microscopie</li>
+<li>dynamique des structures, tremblements de terre</li>
+<li>Imagerie</li>
+<li>Machine Learning (partout)</li>
+</ul>
+</section>
+<section id="support-applicatif" class="slide level1">
+<h1>Support applicatif</h1>
+<p><img src="lenstool.jpg" alt="lenstool" /></p>
+</section>
+<section id="support-applicatif-1" class="slide level1">
+<h1>Support applicatif</h1>
+<ul>
+<li>From scratch to supercomputers: building a large-scale strong lensing computational software bottom-up<br>LASTRO</li>
+<li>Tracing innovation in the market place<br>IIPP</li>
+<li>Laminar-turbulent patterns<br>ECPS</li>
+<li>BrainNets: Extracting Functional Brain Networks from Massive Data Acquisition Initiatives<br>MIP:Lab</li>
+<li>Super-resolution fluorescence microscopy<br>LEB</li>
+</ul>
+</section>
+<section id="reproductibilite" class="slide level1">
+<h1>Reproductibilité</h1>
+</section>
+<section class="slide level1">
+
+<p><img src="Diophantus-II-8-Fermat.jpg" alt="fermat" /></p>
+</section>
+<section class="slide level1">
+
+<div align="left">
+<i> Au contraire, il est impossible de partager soit un cube en deux cubes, soit un bicarré en deux bicarrés, soit en général une puissance quelconque supérieure au carré en deux puissances de même degré : j’en ai découvert une démonstration véritablement merveilleuse que cette marge est trop étroite pour contenir. </i>
+</div>
+<p><br></p>
+<div align="right">
+<p>Le dernier théorème de Fermat<br> conjecture: 1367<br> Preuve: 1994</p>
+</div>
+</section>
+<section class="slide level1">
+
+<p><img src="andrew_wakefield.jpg" alt="wakefield" /></p>
+</section>
+<section class="slide level1">
+
+<p><img src="49060340.cms.jpeg" alt="VW" /></p>
+</section>
+<section id="decisions-politiques-prises-en-fonction-de-la-recherche" class="slide level1">
+<h1>décisions politiques<br>prises en fonction de la recherche</h1>
+</section>
+<section id="resultats-scientifiques-impactent-les-comportements-de-la-societe" class="slide level1">
+<h1>résultats scientifiques<br>impactent les comportements<br>de la société</h1>
+</section>
+<section id="la-mauvaise-recherche-a-des-effets-globaux-et-peut-discrediter-toute-la-recherche" class="slide level1">
+<h1>la mauvaise recherche<br>a des effets globaux<br>et peut discréditer<br>toute la recherche</h1>
+</section>
+<section id="reproductibilite-1" class="slide level1">
+<h1>Reproductibilité</h1>
+<p><br><br></p>
+<ul>
+<li>Pouvoir dupliquer une expérience ou une étude</li>
+<li>Repliquer une expérience</li>
+<li>La reproductibilité est un principe de la méthode scientifique</li>
+</ul>
+</section>
+<section id="la-reproductibilite-est-la-base-de-la-culture-scientifique-moderne" class="slide level1">
+<h1>La reproductibilité est la base de la culture scientifique moderne</h1>
+<p><br><br></p>
+<ul>
+<li>le travail est plus facilement repris</li>
+<li>et utilisé comme base de départ par d’autres</li>
+<li>meilleure efficacité sur le long terme, plus d’impact</li>
+</ul>
+</section>
+<section id="le-produit-ultime-de-la-recherche-est-larticle-scientifique" class="slide level1">
+<h1>Le produit ultime de la recherche est<br>l’article scientifique</h1>
+</section>
+<section class="slide level1">
+
+<p><img src="faux.png" alt="faux" /></p>
+</section>
+<section class="slide level1">
+
+<h2 id="larticle-nest-que-une-pub-par-rapport-au-savoir-qui-est-dans-le-code-et-les-donnees.">L’article n’est que une pub par rapport au savoir qui est dans le code et les données.</h2>
+</section>
+<section class="slide level1">
+
+<p><img src="reproducibility-hpc.png" alt="repro" /></p>
+</section>
+<section id="environnement" class="slide level1">
+<h1>Environnement</h1>
+<p>Notre environnement de programmation<br>est entièrement reproductible</p>
+<h2 id="spack">Spack</h2>
+<ul>
+<li>système de gestion des paquetages</li>
+<li>instructions de compilation,<br>optimisées pour chaque architecture</li>
+<li>graphe de dépendances entre logiciels et leur versions</li>
+</ul>
+</section>
+<section id="code" class="slide level1">
+<h1>Code</h1>
+<h2 id="c4science">C4science</h2>
+<h3 id="plateforme-de-versioning-de-code">Plateforme de versioning de code</h3>
+<ul>
+<li>ouverte à la communauté SwissUniversities</li>
+<li>Git, SVN, Mercurial</li>
+<li>authentication via SwitchAAI</li>
+<li>utilisateurs externes via Google, GitHub, logins locaux</li>
+<li>dimension sociale: wikis, bug trackers, chats</li>
+</ul>
+</section>
+<section id="code-1" class="slide level1">
+<h1>Code</h1>
+<h2 id="c4science-1">C4science</h2>
+<h3 id="integration-continue">Intégration continue</h3>
+<p><br><br></p>
+<ul>
+<li>définir tests et environnements</li>
+<li><em>quand est-ce mon code s’est cassé?</em></li>
+<li>surveiller les performances du code</li>
+</ul>
+</section>
+<section id="c4science-architecture-sur-switchengines" class="slide level1">
+<h1>C4science: architecture sur SwitchEngines</h1>
+<p><img src="logos.png" alt="logos" /></p>
+</section>
+<section class="slide level1">
+
+<h2 id="phabricator">Phabricator</h2>
+<ul>
+<li>outil de développement interne de Facebook depuis 2010</li>
+<li>depuis 2014, entreprise dédiée, Phacility Inc</li>
+<li>maintenu activement et utilisé par: Wikimedia, Blender, KDE, Uber, …</li>
+</ul>
+<h2 id="jenkins">Jenkins</h2>
+<ul>
+<li>intégration continue</li>
+<li>utilisé par SCITAS aussi en interne pour le déploiement des logiciels</li>
+</ul>
+</section>
+<section id="infrastructure" class="slide level1">
+<h1>Infrastructure</h1>
+<ul>
+<li>Openstack chez SWITCHengines</li>
+<li>authentification Shibboleth chez Switch AAI</li>
+<li>Jenkins via Docker</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p><img src="infra.png" alt="infra" /></p>
+</section>
+<section id="retour-aux-clusters-couts" class="slide level1">
+<h1>Retour aux clusters: coûts</h1>
+</section>
+<section id="couts-internes" class="slide level1">
+<h1>Coûts internes</h1>
+<p><br> <br></p>
+<ul>
+<li>support générique</li>
+<li>amortissement des noeuds de calcul</li>
+</ul>
+<p><br></p>
+<div class="fragment" data-fragment-index="1">
+<p>0.0082 CHF le core hour</p>
+</div>
+</section>
+<section id="externe-academique" class="slide level1">
+<h1>Externe académique</h1>
+<p><br> <br></p>
+<ul>
+<li>maintenance par les experts système</li>
+<li>contrats de maintenance avec les fournisseurs</li>
+<li>stockage et réseau</li>
+</ul>
+<p><br></p>
+<div class="fragment" data-fragment-index="1">
+<p>0.0187 CHF le core hour</p>
+</div>
+</section>
+<section id="tco" class="slide level1">
+<h1>TCO</h1>
+<p><br></p>
+<ul>
+<li>électricité et refroidissement</li>
+<li>coût du personnel administratif</li>
+<li>coût du personnel des services centraux</li>
+<li>loyer et fonctionnement</li>
+</ul>
+<p><br></p>
+<div class="fragment" data-fragment-index="1">
+<p>0.0230 CHF le core hour</p>
+</div>
+</section>
+<section id="visite-de-la-salle-machines" class="slide level1">
+<h1>Visite de la salle machines</h1>
+<h2 id="informations">Informations</h2>
+<ul>
+<li>ouverte en en 2012</li>
+<li>capacité: 1MW</li>
+<li>entièrement refroidie avec l’eau du lac</li>
+<li><em>free cooling</em></li>
+<li>et les truites?</li>
+<li>presque pleine… mais on aura une nouvelle salle en 2021</li>
+<li>bruyante (merci Deneb)</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p><img src="inj012-SCITAS.png" alt="dc" /></p>
+</section>
+    </div>
+  </div>
+
+  <script src="presentation_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="presentation_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'presentation_files/reveal.js-3.3.0.1/plugin/notes/notes.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
